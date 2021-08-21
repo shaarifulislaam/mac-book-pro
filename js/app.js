@@ -7,8 +7,6 @@ const extraMemoryCostFeild = document.getElementById("extra-memory");
 const extraStorageCostFeild = document.getElementById("extra-storage");
 //delivery chaarge feild
 const deliveryChargeFeild = document.getElementById("delivery-charge");
-//best price feild
-const bestPriceFeild = document.getElementById("best-price");
 // total price feild 
 const totalPriceFeild = document.getElementById("total-price");
 //Storage button
@@ -34,11 +32,11 @@ function deliveryCost(deliveryPrice) {
 }
 //total calculatio function
 function priceCalculation() {
-  const bestPrice = parseInt(bestPriceFeild.innerText);
   const extraMemoryPrice = parseInt(extraMemoryCostFeild.innerText);
   const extraStoragePrice = parseInt(extraStorageCostFeild.innerText);
   const deliveryCharge = parseInt(deliveryChargeFeild.innerText);
-  const totalPrice = (bestPrice + extraMemoryPrice + extraStoragePrice + deliveryCharge);
+  //sum all cost
+  const totalPrice = ( extraMemoryPrice + extraStoragePrice + deliveryCharge)+ 1299;
   totalPriceFeild.innerText = totalPrice;
   totalFeild.innerText = totalPrice;
 }
@@ -91,9 +89,7 @@ pomoCodeBtn.addEventListener("click", function () {
     const discount = mainPrice / 5;
     const withPomocodePrice = mainPrice - discount;
     totalFeild.innerText = withPomocodePrice;
-  } else {
-    totalFeild.innerText = mainPrice;
-  }
+  } 
   //clear input
   pomoCodeInput.value = "";
 });
